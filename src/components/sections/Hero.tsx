@@ -1,6 +1,6 @@
 import { PromoBlock } from "@/components/PromoBlock";
 import { StoreButtons } from "@/components/StoreButtons";
-import heroPhone from "@/assets/screenshots/step-5.png";
+import heroPhone from "@/assets/screenshots/hero.png";
 import logo from "@/assets/mutolaa-logo.png";
 
 export function Hero() {
