@@ -1,20 +1,65 @@
-import { ScreenshotPlaceholder } from "@/components/ScreenshotPlaceholder";
+import step1 from "@/assets/screenshots/step-1.png";
+import step2 from "@/assets/screenshots/step-2.png";
+import step3 from "@/assets/screenshots/step-3.png";
+import step4 from "@/assets/screenshots/step-4.png";
+import step5 from "@/assets/screenshots/step-5.png";
+import step6 from "@/assets/screenshots/step-6.png";
+import step7 from "@/assets/screenshots/step-7.png";
+import step8 from "@/assets/screenshots/step-8.png";
+import step9 from "@/assets/screenshots/step-9.png";
 
 interface Step {
   title: string;
   description: string;
+  image: string;
 }
 
 const STEPS: Step[] = [
-  { title: "Ilovani oching", description: "Mutolaa ilovasini qurilmangizda ishga tushiring." },
-  { title: "Premium bo'limiga o'ting", description: "Asosiy menyudan «Premium» yoki «Obuna» bo'limini tanlang." },
-  { title: "Tarifni tanlang", description: "Sizga mos keladigan oylik yoki yillik tarifni belgilang." },
-  { title: "Promokod kiritish", description: "To'lov sahifasida «Promokod kiritish» tugmasini bosing." },
-  { title: "AKMAL20 ni kiriting", description: "Promokod maydoniga AKMAL20 deb yozing va tasdiqlang." },
-  { title: "Chegirmani tekshiring", description: "20% chegirma qo'llanganini va yangi narxni ko'ring." },
-  { title: "To'lov usulini tanlang", description: "Karta yoki boshqa qulay to'lov usulini belgilang." },
-  { title: "To'lovni tasdiqlang", description: "To'lovni xavfsiz tarzda yakunlang — bir necha soniya yetarli." },
-  { title: "Premium faollashdi", description: "Tabriklaymiz! Endi barcha Premium imkoniyatlardan foydalaning." },
+  {
+    title: "Ilovani oching",
+    description: "App Store yoki Google Play'dan Mutolaa ilovasini yuklab oling va oching.",
+    image: step1,
+  },
+  {
+    title: "Tizimga kiring",
+    description: "Telefon raqam yoki Google/Apple orqali akkauntingizga kiring.",
+    image: step2,
+  },
+  {
+    title: "Sahifam bo'limiga o'ting",
+    description: "Pastki menyudan «Sahifam» bo'limini tanlang.",
+    image: step3,
+  },
+  {
+    title: "«Premium» tugmasini bosing",
+    description: "Sahifam ro'yxatidan «Premium» qatorini tanlang.",
+    image: step4,
+  },
+  {
+    title: "«Obuna bo'lish» ni bosing",
+    description: "Mutolaa Premium ekranida pastdagi to'q sariq tugmani bosing.",
+    image: step5,
+  },
+  {
+    title: "Tarifni tanlang",
+    description: "Yillik tarifni tanlang — eng tejamkor variant — va «Davom etish» ni bosing.",
+    image: step6,
+  },
+  {
+    title: "«Chegirma promokodi» ni oching",
+    description: "To'lov ekranida «Chegirma promokodi» qatoriga tegining.",
+    image: step7,
+  },
+  {
+    title: "AKMAL20 ni kiriting",
+    description: "Promokod maydoniga AKMAL20 deb yozing va «Tasdiqlash» ni bosing.",
+    image: step8,
+  },
+  {
+    title: "Chegirma qo'llandi — to'lang",
+    description: "−20% chegirma qo'llanganini ko'ring va «Obuna bo'lish» orqali to'lovni yakunlang.",
+    image: step9,
+  },
 ];
 
 export function HowItWorks() {
@@ -33,27 +78,40 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
           {STEPS.map((step, idx) => (
             <div
               key={step.title}
-              className="reveal group relative rounded-3xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-soft"
+              className="reveal group relative flex flex-col"
               style={{ transitionDelay: `${idx * 50}ms` }}
             >
-              <div className="absolute -top-4 left-6 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-primary font-display text-base font-extrabold text-primary-foreground shadow-glow">
-                {idx + 1}
+              {/* Phone screenshot (already framed) */}
+              <div className="relative mx-auto w-full max-w-[260px]">
+                <div
+                  aria-hidden
+                  className="absolute inset-x-6 top-6 -z-10 h-full rounded-[3rem] bg-primary/20 blur-2xl"
+                />
+                <img
+                  src={step.image}
+                  alt={`${idx + 1}-qadam: ${step.title}`}
+                  loading="lazy"
+                  className="relative w-full drop-shadow-[0_20px_40px_rgba(255,147,69,0.25)] transition-transform duration-500 group-hover:-translate-y-2"
+                />
+                {/* Step number badge */}
+                <div className="absolute -top-2 -left-2 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-primary font-display text-lg font-extrabold text-primary-foreground shadow-glow ring-4 ring-cream">
+                  {idx + 1}
+                </div>
               </div>
 
-              <div className="mt-2 mb-5">
-                <ScreenshotPlaceholder index={idx + 1} label={`Screenshot ${idx + 1}`} />
+              {/* Caption */}
+              <div className="mt-5 text-center">
+                <h3 className="font-display text-lg font-bold text-ink">
+                  {idx + 1}-qadam: {step.title}
+                </h3>
+                <p className="mx-auto mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
+                  {step.description}
+                </p>
               </div>
-
-              <h3 className="font-display text-lg font-bold text-ink">
-                {idx + 1}-qadam: {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {step.description}
-              </p>
             </div>
           ))}
         </div>
