@@ -15,12 +15,9 @@ export function Hero() {
 
       <div className="mx-auto max-w-7xl px-5 pt-8 sm:px-8 sm:pt-10">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-soft">
-            <BookOpen size={20} strokeWidth={2.5} />
-          </div>
-          <span className="font-display text-lg font-extrabold tracking-tight">Mutolaa</span>
-        </div>
+        <a href="/" className="inline-flex items-center" aria-label="Mutolaa">
+          <img src={logo} alt="Mutolaa" className="h-9 w-auto sm:h-10" />
+        </a>
       </div>
 
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-8 lg:py-24">
