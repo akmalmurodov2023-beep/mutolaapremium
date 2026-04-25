@@ -26,14 +26,15 @@ export function LanguageSwitcher({ variant = "light" }: { variant?: "light" | "d
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={`inline-flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-semibold transition-all ${btnStyle}`}
+        className={`inline-flex items-center gap-1.5 rounded-xl border px-2.5 py-2 text-sm font-semibold transition-all sm:gap-2 sm:px-3 ${btnStyle}`}
         aria-label={t.nav.languageLabel}
         aria-haspopup="menu"
         aria-expanded={open}
       >
-        <Globe size={16} />
-        <span>{LOCALE_META[locale].name}</span>
-        <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+        <Globe size={16} className="shrink-0" />
+        <span className="hidden sm:inline">{LOCALE_META[locale].name}</span>
+        <span className="sm:hidden uppercase">{locale}</span>
+        <ChevronDown size={14} className={`shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
 
       {open && (
