@@ -29,6 +29,16 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Mutolaa Premium Promokod - AKMAL20" },
+      { property: "og:title", content: "Mutolaa Premium Promokod - AKMAL20" },
+      { name: "twitter:title", content: "Mutolaa Premium Promokod - AKMAL20" },
+      { name: "description", content: "Mutolaa Premium — 20% chegirma bilan AKMAL20 promokodi orqali oylik va yillik tarifga 20% chegirma oling. Minglab audio va elektron kitoblarga to'liq kirish" },
+      { property: "og:description", content: "Mutolaa Premium — 20% chegirma bilan AKMAL20 promokodi orqali oylik va yillik tarifga 20% chegirma oling. Minglab audio va elektron kitoblarga to'liq kirish" },
+      { name: "twitter:description", content: "Mutolaa Premium — 20% chegirma bilan AKMAL20 promokodi orqali oylik va yillik tarifga 20% chegirma oling. Minglab audio va elektron kitoblarga to'liq kirish" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/45355155-215a-4f20-b0fe-2c299e67bef2/id-preview-d368f151--38c58ef4-8b94-403a-8e82-5a363b2b36b3.lovable.app-1777080250006.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/45355155-215a-4f20-b0fe-2c299e67bef2/id-preview-d368f151--38c58ef4-8b94-403a-8e82-5a363b2b36b3.lovable.app-1777080250006.png" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
