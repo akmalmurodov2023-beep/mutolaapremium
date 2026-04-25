@@ -29,23 +29,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mutolaa Premium —20% AKMAL20 promokod bilan" },
-      {
-        name: "description",
-        content:
-          "AKMAL20 promokodi orqali Mutolaa Premium tarifiga 20% chegirma oling. Minglab audio va elektron kitoblarga to'liq kirish.",
-      },
-      { property: "og:title", content: "Mutolaa Premium —20% AKMAL20 promokod bilan" },
-      {
-        property: "og:description",
-        content:
-          "AKMAL20 promokodi orqali oylik va yillik tarifga 20% chegirma. Audiokitoblar va elektron kitoblar kutubxonasi.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -61,7 +48,7 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="uz">
       <head>
         <HeadContent />
       </head>
