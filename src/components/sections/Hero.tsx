@@ -70,8 +70,12 @@ export function Hero() {
             className="absolute inset-0 -z-10 mx-auto h-full w-3/4 rounded-[3rem] opacity-60 blur-2xl"
             style={{ background: "var(--primary)" }}
           />
-          <div className="mx-auto w-full max-w-[280px]">
-            <ScreenshotPlaceholder index={0} label="Mutolaa ilovasi" />
+          <div className="mx-auto w-full max-w-[320px]">
+            <img
+              src={heroPhone}
+              alt="Mutolaa Premium ilovasi"
+              className="w-full drop-shadow-[0_30px_60px_rgba(255,147,69,0.35)]"
+            />
           </div>
         </div>
       </div>
