@@ -16,12 +16,14 @@ export function Hero() {
         style={{ background: "radial-gradient(closest-side, var(--primary), transparent)" }}
       />
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 pt-8 sm:px-8 sm:pt-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-5 pt-8 sm:px-8 sm:pt-10">
         {/* Logo */}
-        <a href="/" className="inline-flex items-center" aria-label="Mutolaa">
-          <img src={logo} alt="Mutolaa" className="h-14 w-auto sm:h-16 lg:h-20" />
+        <a href="/" className="inline-flex shrink-0 items-center" aria-label="Mutolaa">
+          <img src={logo} alt="Mutolaa" className="h-12 w-auto shrink-0 sm:h-16 lg:h-20" />
         </a>
-        <LanguageSwitcher />
+        <div className="shrink-0">
+          <LanguageSwitcher />
+        </div>
       </div>
 
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 sm:py-20 lg:grid-cols-2 lg:gap-8 lg:py-24">
