@@ -1,7 +1,9 @@
 import { Send, Phone } from "lucide-react";
 import logo from "@/assets/mutolaa-logo.png";
+import { useI18n } from "@/i18n/context";
 
 export function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="border-t border-white/10 bg-ink py-12 text-white/70">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 md:grid-cols-3">
@@ -11,14 +13,12 @@ export function Footer() {
             alt="Mutolaa"
             className="h-12 w-auto brightness-0 invert sm:h-14"
           />
-          <p className="mt-4 text-sm leading-relaxed">
-            O'zbek tilidagi audio va elektron kitoblar kutubxonasi. Bilim va mutolaa har doim yoningizda.
-          </p>
+          <p className="mt-4 text-sm leading-relaxed">{t.footer.tagline}</p>
         </div>
 
         <div>
           <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white">
-            Aloqa
+            {t.footer.contact}
           </h4>
           <ul className="mt-4 space-y-3 text-sm">
             <li>
@@ -44,17 +44,14 @@ export function Footer() {
 
         <div>
           <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white">
-            Eslatma
+            {t.footer.note}
           </h4>
-          <p className="mt-4 text-xs leading-relaxed">
-            Bu sayt Mutolaa loyihasining rasmiy hamkori tomonidan tayyorlangan. AKMAL20 promokodi
-            orqali Mutolaa Premium tarifiga 20% chegirma taqdim etiladi.
-          </p>
+          <p className="mt-4 text-xs leading-relaxed">{t.footer.noteText}</p>
         </div>
       </div>
 
       <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 px-5 pt-6 text-center text-xs sm:px-8">
-        © 2026 Mutolaa Premium hamkorlik landingi. Barcha huquqlar himoyalangan.
+        {t.footer.copyright}
       </div>
     </footer>
   );

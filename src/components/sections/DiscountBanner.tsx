@@ -1,6 +1,8 @@
 import { PromoBlock } from "@/components/PromoBlock";
+import { useI18n } from "@/i18n/context";
 
 export function DiscountBanner() {
+  const { t } = useI18n();
   return (
     <section className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -12,29 +14,23 @@ export function DiscountBanner() {
           }}
         >
           {/* decorative circles */}
-          <div
-            aria-hidden
-            className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/10"
-          />
-          <div
-            aria-hidden
-            className="absolute -bottom-24 -left-10 h-64 w-64 rounded-full bg-white/5"
-          />
+          <div aria-hidden className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/10" />
+          <div aria-hidden className="absolute -bottom-24 -left-10 h-64 w-64 rounded-full bg-white/5" />
 
           <div className="relative grid items-center gap-10 lg:grid-cols-2">
             <div>
               <span className="text-sm font-semibold uppercase tracking-[0.18em] text-white/80">
-                Maxsus taklif
+                {t.discount.eyebrow}
               </span>
               <div className="mt-3 flex items-baseline gap-3">
                 <span className="font-display text-7xl font-extrabold leading-none text-white sm:text-8xl">
                   −20%
                 </span>
-                <span className="text-lg font-semibold text-white/90">chegirma</span>
+                <span className="text-lg font-semibold text-white/90">{t.discount.discountLabel}</span>
               </div>
               <p className="mt-4 max-w-md text-lg text-white/90">
-                <span className="font-bold">AKMAL20</span> promokodi bilan istalgan tarifga —
-                oylik yoki yillik.
+                <span className="font-bold">{t.discount.description1}</span>
+                {t.discount.description2}
               </p>
               <div className="mt-6">
                 <PromoBlock variant="dark" size="lg" />
@@ -43,21 +39,20 @@ export function DiscountBanner() {
 
             <div className="space-y-4">
               <PriceRow
-                label="Oylik tarif"
+                label={t.discount.monthly}
                 original="33 000 so'm"
                 discounted="26 400 so'm"
-                sub="oyiga"
+                sub={t.discount.monthlySub}
               />
               <PriceRow
-                label="Yillik tarif"
+                label={t.discount.yearly}
                 original="155 000 so'm"
                 discounted="124 000 so'm"
-                sub="atigi 12 916 so'm/oy"
+                sub={t.discount.yearlySub}
+                saverLabel={t.discount.saver}
                 highlight
               />
-              <p className="text-xs text-white/70">
-                * Narxlar AKMAL20 promokodi qo'llanganda. Aniq narxlar ilovada ko'rsatiladi.
-              </p>
+              <p className="text-xs text-white/70">{t.discount.note}</p>
             </div>
           </div>
         </div>
@@ -72,12 +67,14 @@ function PriceRow({
   discounted,
   sub,
   highlight,
+  saverLabel,
 }: {
   label: string;
   original: string;
   discounted: string;
   sub?: string;
   highlight?: boolean;
+  saverLabel?: string;
 }) {
   return (
     <div
@@ -88,7 +85,7 @@ function PriceRow({
     >
       <div className="min-w-0">
         <div className={`text-xs font-semibold uppercase tracking-wider ${highlight ? "text-primary" : "text-white/70"}`}>
-          {label} {highlight && "• Tejamkor"}
+          {label} {highlight && saverLabel && `• ${saverLabel}`}
         </div>
         <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <span className="font-display text-2xl font-extrabold">{discounted}</span>

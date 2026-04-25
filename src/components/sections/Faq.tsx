@@ -1,39 +1,9 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-
-interface QA {
-  q: string;
-  a: string;
-}
-
-const FAQ: QA[] = [
-  {
-    q: "AKMAL20 promokodi qancha vaqt amal qiladi?",
-    a: "Promokod amal qilish muddati cheklangan bo'lishi mumkin. Iloji boricha tezroq foydalanishingizni tavsiya qilamiz.",
-  },
-  {
-    q: "Promokod yillik tarifga ham qo'llaniladimi?",
-    a: "Ha, AKMAL20 promokodi ham oylik, ham yillik tarifga 20% chegirma beradi. Yillik tarifda umumiy tejamkorlik ancha katta bo'ladi.",
-  },
-  {
-    q: "Premium'ni bekor qilsam bo'ladimi?",
-    a: "Ha, istalgan vaqtda obunani bekor qilishingiz mumkin. Bekor qilish ilova sozlamalari yoki App Store / Google Play orqali amalga oshiriladi.",
-  },
-  {
-    q: "To'lov qaysi kartalar orqali amalga oshiriladi?",
-    a: "To'lov ilova ichidagi qulay usullar orqali amalga oshiriladi — mahalliy va xalqaro kartalar qo'llab-quvvatlanadi.",
-  },
-  {
-    q: "Bir akkauntda nechta qurilmada ishlataman?",
-    a: "Bitta akkaunt bilan bir nechta qurilmada (telefon, planshet) tizimga kirishingiz mumkin.",
-  },
-  {
-    q: "Promokod ishlamasa nima qilish kerak?",
-    a: "Promokod katta-kichik harflarsiz to'g'ri yozilganini tekshiring: AKMAL20. Agar muammo davom etsa, qo'llab-quvvatlash xizmatiga murojaat qiling.",
-  },
-];
+import { useI18n } from "@/i18n/context";
 
 export function Faq() {
+  const { t } = useI18n();
   const [open, setOpen] = useState<number | null>(0);
 
   return (
@@ -41,15 +11,15 @@ export function Faq() {
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
         <div className="reveal text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            FAQ
+            {t.faq.eyebrow}
           </span>
           <h2 className="mt-3 font-display text-3xl font-extrabold text-ink sm:text-4xl lg:text-5xl">
-            Ko'p so'raladigan savollar
+            {t.faq.title}
           </h2>
         </div>
 
         <div className="reveal mt-10 space-y-3">
-          {FAQ.map((item, i) => {
+          {t.faq.items.map((item, i) => {
             const isOpen = open === i;
             return (
               <div
