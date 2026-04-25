@@ -1,16 +1,16 @@
-import { BookOpen, Send, Phone } from "lucide-react";
+import { Send, Phone } from "lucide-react";
+import logo from "@/assets/mutolaa-logo.png";
 
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-ink py-12 text-white/70">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 sm:px-8 md:grid-cols-3">
         <div>
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-              <BookOpen size={18} strokeWidth={2.5} />
-            </div>
-            <span className="font-display text-lg font-extrabold text-white">Mutolaa</span>
-          </div>
+          <img
+            src={logo}
+            alt="Mutolaa"
+            className="h-9 w-auto brightness-0 invert"
+          />
           <p className="mt-4 text-sm leading-relaxed">
             O'zbek tilidagi audio va elektron kitoblar kutubxonasi. Bilim va mutolaa har doim yoningizda.
           </p>
