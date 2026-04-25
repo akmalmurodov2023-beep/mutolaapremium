@@ -1,4 +1,4 @@
-import { Send, Phone } from "lucide-react";
+import { Send, Phone, Globe } from "lucide-react";
 import logo from "@/assets/mutolaa-logo.png";
 import { useI18n } from "@/i18n/context";
 
@@ -23,20 +23,30 @@ export function Footer() {
           <ul className="mt-4 space-y-3 text-sm">
             <li>
               <a
-                href="https://t.me/akmal"
+                href="https://t.me/promokoduzbekistan_bot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 transition-colors hover:text-primary"
               >
-                <Send size={16} /> Telegram: @akmal
+                <Send size={16} /> @promokoduzbekistan_bot
               </a>
             </li>
             <li>
               <a
-                href="tel:+998000000000"
+                href="tel:+998773590100"
                 className="inline-flex items-center gap-2 transition-colors hover:text-primary"
               >
-                <Phone size={16} /> +998 00 000 00 00
+                <Phone size={16} /> +998 77 359 01 00
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://promakod.uz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 transition-colors hover:text-primary"
+              >
+                <Globe size={16} /> {t.footer.partner}: promakod.uz
               </a>
             </li>
           </ul>

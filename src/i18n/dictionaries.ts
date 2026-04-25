@@ -68,6 +68,7 @@ export interface Dict {
   footer: {
     tagline: string;
     contact: string;
+    partner: string;
     note: string;
     noteText: string;
     copyright: string;
@@ -183,6 +184,7 @@ const uz: Dict = {
   footer: {
     tagline: "O'zbek tilidagi audio va elektron kitoblar kutubxonasi. Bilim va mutolaa har doim yoningizda.",
     contact: "Aloqa",
+    partner: "Hamkor sayt",
     note: "Eslatma",
     noteText: "Bu sayt Mutolaa loyihasining rasmiy hamkori tomonidan tayyorlangan. AKMAL20 promokodi orqali Mutolaa Premium tarifiga 20% chegirma taqdim etiladi.",
     copyright: "© 2026 Mutolaa Premium hamkorlik landingi. Barcha huquqlar himoyalangan.",
@@ -291,6 +293,7 @@ const qr: Dict = {
   footer: {
     tagline: "Ózbek tilindegi audio hám elektron kitaplar kitapxanası. Bilim hám oqıw hár dayım janıńızda.",
     contact: "Baylanıs",
+    partner: "Sherik sayt",
     note: "Eskertpe",
     noteText: "Bul sayt Mutolaa joybarınıń rásmiy sherigi tárepinen tayarlanǵan. AKMAL20 promokodı arqalı Mutolaa Premium tarifıne 20% jeńillik beriledi.",
     copyright: "© 2026 Mutolaa Premium sheriklik landingi. Barlıq huqıqlar qorǵalǵan.",
@@ -399,6 +402,7 @@ const ru: Dict = {
   footer: {
     tagline: "Библиотека аудио и электронных книг на узбекском языке. Знания и чтение всегда с вами.",
     contact: "Контакты",
+    partner: "Партнёрский сайт",
     note: "Примечание",
     noteText: "Этот сайт подготовлен официальным партнёром проекта Mutolaa. По промокоду AKMAL20 предоставляется скидка 20% на тариф Mutolaa Premium.",
     copyright: "© 2026 Партнёрский лендинг Mutolaa Premium. Все права защищены.",
@@ -507,6 +511,7 @@ const en: Dict = {
   footer: {
     tagline: "A library of audio and e-books in Uzbek. Knowledge and reading, always with you.",
     contact: "Contact",
+    partner: "Partner site",
     note: "Note",
     noteText: "This site is prepared by an official partner of the Mutolaa project. The AKMAL20 promo code grants 20% off the Mutolaa Premium plan.",
     copyright: "© 2026 Mutolaa Premium partner landing. All rights reserved.",
