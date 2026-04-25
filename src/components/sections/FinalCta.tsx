@@ -1,5 +1,5 @@
-import { PromoBlock } from "../PromoBlock";
-import { StoreButtons } from "../StoreButtons";
+import { PromoBlock } from "@/components/PromoBlock";
+import { StoreButtons } from "@/components/StoreButtons";
 
 export function FinalCta() {
   return (

@@ -1,7 +1,7 @@
 import { BookOpen } from "lucide-react";
-import { PromoBlock } from "./PromoBlock";
-import { StoreButtons } from "./StoreButtons";
-import { ScreenshotPlaceholder } from "./ScreenshotPlaceholder";
+import { PromoBlock } from "@/components/PromoBlock";
+import { StoreButtons } from "@/components/StoreButtons";
+import { ScreenshotPlaceholder } from "@/components/ScreenshotPlaceholder";
 
 export function Hero() {
   return (

@@ -1,4 +1,4 @@
-import { ScreenshotPlaceholder } from "../ScreenshotPlaceholder";
+import { ScreenshotPlaceholder } from "@/components/ScreenshotPlaceholder";
 
 interface Step {
   title: string;

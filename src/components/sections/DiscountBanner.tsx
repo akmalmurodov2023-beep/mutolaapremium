@@ -1,4 +1,4 @@
-import { PromoBlock } from "../PromoBlock";
+import { PromoBlock } from "@/components/PromoBlock";
 
 export function DiscountBanner() {
   return (
