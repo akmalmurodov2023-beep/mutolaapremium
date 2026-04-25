@@ -70,34 +70,41 @@ function PriceRow({
   label,
   original,
   discounted,
+  sub,
   highlight,
 }: {
   label: string;
   original: string;
   discounted: string;
+  sub?: string;
   highlight?: boolean;
 }) {
   return (
     <div
       className={[
-        "flex items-center justify-between rounded-2xl px-5 py-4 backdrop-blur-sm",
+        "flex items-center justify-between gap-4 rounded-2xl px-5 py-4 backdrop-blur-sm",
         highlight ? "bg-white text-ink" : "bg-white/15 text-white",
       ].join(" ")}
     >
-      <div>
+      <div className="min-w-0">
         <div className={`text-xs font-semibold uppercase tracking-wider ${highlight ? "text-primary" : "text-white/70"}`}>
           {label} {highlight && "• Tejamkor"}
         </div>
-        <div className="mt-1 flex items-baseline gap-3">
+        <div className="mt-1 flex flex-wrap items-baseline gap-x-3 gap-y-1">
           <span className="font-display text-2xl font-extrabold">{discounted}</span>
           <span className={`text-sm line-through ${highlight ? "text-muted-foreground" : "text-white/60"}`}>
             {original}
           </span>
         </div>
+        {sub && (
+          <div className={`mt-1 text-xs font-medium ${highlight ? "text-muted-foreground" : "text-white/70"}`}>
+            {sub}
+          </div>
+        )}
       </div>
       <div
         className={[
-          "rounded-full px-3 py-1 text-xs font-bold",
+          "shrink-0 rounded-full px-3 py-1 text-xs font-bold",
           highlight ? "bg-primary text-primary-foreground" : "bg-white text-primary",
         ].join(" ")}
       >
