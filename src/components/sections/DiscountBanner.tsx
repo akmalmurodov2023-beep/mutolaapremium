@@ -42,15 +42,21 @@ export function DiscountBanner() {
             </div>
 
             <div className="space-y-4">
-              <PriceRow label="Oylik tarif" original="29 000 so'm" discounted="23 200 so'm" />
+              <PriceRow
+                label="Oylik tarif"
+                original="33 000 so'm"
+                discounted="26 400 so'm"
+                sub="oyiga"
+              />
               <PriceRow
                 label="Yillik tarif"
-                original="290 000 so'm"
-                discounted="232 000 so'm"
+                original="155 000 so'm"
+                discounted="124 000 so'm"
+                sub="atigi 12 916 so'm/oy"
                 highlight
               />
               <p className="text-xs text-white/70">
-                * Narxlar taxminiy ko'rsatilgan. Aniq narxlar ilovada ko'rsatiladi.
+                * Narxlar AKMAL20 promokodi qo'llanganda. Aniq narxlar ilovada ko'rsatiladi.
               </p>
             </div>
           </div>
