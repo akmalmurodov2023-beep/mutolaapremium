@@ -1,7 +1,7 @@
-import { BookOpen } from "lucide-react";
 import { PromoBlock } from "@/components/PromoBlock";
 import { StoreButtons } from "@/components/StoreButtons";
 import heroPhone from "@/assets/screenshots/step-5.png";
+import logo from "@/assets/mutolaa-logo.png";
 
 export function Hero() {
   return (
