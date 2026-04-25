@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useState as useS, Suspense } from "react";
 import { Copy, Check, ArrowDown } from "lucide-react";
 
 /**
@@ -77,7 +76,3 @@ export function StickyMobileCta() {
     </div>
   );
 }
-
-// silence unused
-void useS;
-void Suspense;
