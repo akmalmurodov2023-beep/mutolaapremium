@@ -7,65 +7,28 @@ import {
   Brain,
   type LucideIcon,
 } from "lucide-react";
+import { useI18n } from "@/i18n/context";
 
-interface Feature {
-  icon: LucideIcon;
-  title: string;
-  description: string;
-}
-
-const FEATURES: Feature[] = [
-  {
-    icon: DownloadCloud,
-    title: "Audiokitoblarni offline",
-    description: "Internetga ulanmasdan tinglash uchun audiokitoblarni qurilmangizga yuklab oling.",
-  },
-  {
-    icon: Library,
-    title: "Mutolaaxonam",
-    description: "Shaxsiy javoningiz va o'qish kuzatuvi — sevimli kitoblaringiz bir joyda.",
-  },
-  {
-    icon: Crown,
-    title: "Premium kitoblar",
-    description: "Faqat Premium foydalanuvchilar uchun ochiq bo'lgan eksklyuziv kitoblar.",
-  },
-  {
-    icon: Headphones,
-    title: "Tovushbezak",
-    description: "Kinematik audiokitob tajribasi — musiqa va sado effektlari bilan boyitilgan.",
-  },
-  {
-    icon: BarChart3,
-    title: "Faollik statistikasi",
-    description: "O'qish odatlaringizni kuzating: kunlik, haftalik va oylik natijalar.",
-  },
-  {
-    icon: Brain,
-    title: "Kitob bo'yicha quiz",
-    description: "Har bir kitobdan keyin bilimingizni mustahkamlash uchun qiziqarli testlar.",
-  },
-];
+const ICONS: LucideIcon[] = [DownloadCloud, Library, Crown, Headphones, BarChart3, Brain];
 
 export function Features() {
+  const { t } = useI18n();
   return (
     <section className="bg-background py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="reveal mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            Nega Premium?
+            {t.features.eyebrow}
           </span>
           <h2 className="mt-3 font-display text-3xl font-extrabold text-ink sm:text-4xl lg:text-5xl">
-            Mutolaa Premium imkoniyatlari
+            {t.features.title}
           </h2>
-          <p className="mt-4 text-muted-foreground">
-            O'qish va tinglashni yangi bosqichga olib chiqadigan oltita asosiy xususiyat.
-          </p>
+          <p className="mt-4 text-muted-foreground">{t.features.subtitle}</p>
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map((f, i) => {
-            const Icon = f.icon;
+          {t.features.items.map((f, i) => {
+            const Icon = ICONS[i];
             return (
               <div
                 key={f.title}

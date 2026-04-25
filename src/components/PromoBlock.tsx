@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
+import { useI18n } from "@/i18n/context";
 
 interface PromoBlockProps {
   variant?: "light" | "dark";
@@ -7,6 +8,7 @@ interface PromoBlockProps {
 }
 
 export function PromoBlock({ variant = "light", size = "md" }: PromoBlockProps) {
+  const { t } = useI18n();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -38,7 +40,7 @@ export function PromoBlock({ variant = "light", size = "md" }: PromoBlockProps) 
             isDark ? "text-white/70" : "text-muted-foreground",
           ].join(" ")}
         >
-          Promokod
+          {t.promo.label}
         </span>
         <span
           className={[
@@ -61,10 +63,10 @@ export function PromoBlock({ variant = "light", size = "md" }: PromoBlockProps) 
               ? "bg-white text-ink hover:bg-white/90"
               : "bg-primary text-primary-foreground hover:opacity-90",
         ].join(" ")}
-        aria-label="Promokodni nusxalash"
+        aria-label={t.promo.copyAria}
       >
         {copied ? <Check size={18} /> : <Copy size={18} />}
-        {copied ? "Nusxalandi" : "Nusxalash"}
+        {copied ? t.promo.copied : t.promo.copy}
       </button>
     </div>
   );

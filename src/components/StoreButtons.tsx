@@ -1,4 +1,5 @@
 import { Apple, Play, Smartphone } from "lucide-react";
+import { useI18n } from "@/i18n/context";
 
 const LINKS = {
   appStore: "https://apps.apple.com/uz/app/mutolaa/id6475738561",
@@ -13,6 +14,7 @@ interface StoreButtonsProps {
 }
 
 export function StoreButtons({ variant = "light", showAppGallery = false }: StoreButtonsProps) {
+  const { t } = useI18n();
   const isDark = variant === "dark";
   const base =
     "inline-flex items-center gap-3 rounded-xl px-5 py-3 text-sm font-semibold transition-all hover:-translate-y-0.5 active:scale-95 shadow-soft";
@@ -28,14 +30,14 @@ export function StoreButtons({ variant = "light", showAppGallery = false }: Stor
       <a href={LINKS.appStore} target="_blank" rel="noopener noreferrer" className={`${base} ${primaryStyle}`}>
         <Apple size={22} />
         <div className="flex flex-col items-start leading-tight">
-          <span className="text-[10px] opacity-70">Yuklab oling</span>
+          <span className="text-[10px] opacity-70">{t.store.download}</span>
           <span>App Store</span>
         </div>
       </a>
       <a href={LINKS.googlePlay} target="_blank" rel="noopener noreferrer" className={`${base} ${primaryStyle}`}>
         <Play size={22} />
         <div className="flex flex-col items-start leading-tight">
-          <span className="text-[10px] opacity-70">Yuklab oling</span>
+          <span className="text-[10px] opacity-70">{t.store.download}</span>
           <span>Google Play</span>
         </div>
       </a>
@@ -48,7 +50,7 @@ export function StoreButtons({ variant = "light", showAppGallery = false }: Stor
         >
           <Smartphone size={22} />
           <div className="flex flex-col items-start leading-tight">
-            <span className="text-[10px] opacity-70">Yuklab oling</span>
+            <span className="text-[10px] opacity-70">{t.store.download}</span>
             <span>App Gallery</span>
           </div>
         </a>
