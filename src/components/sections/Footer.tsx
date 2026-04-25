@@ -9,7 +9,7 @@ export function Footer() {
           <img
             src={logo}
             alt="Mutolaa"
-            className="h-9 w-auto brightness-0 invert"
+            className="h-12 w-auto brightness-0 invert sm:h-14"
           />
           <p className="mt-4 text-sm leading-relaxed">
             O'zbek tilidagi audio va elektron kitoblar kutubxonasi. Bilim va mutolaa har doim yoningizda.
