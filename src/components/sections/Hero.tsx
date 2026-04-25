@@ -16,7 +16,7 @@ export function Hero() {
       <div className="mx-auto max-w-7xl px-5 pt-8 sm:px-8 sm:pt-10">
         {/* Logo */}
         <a href="/" className="inline-flex items-center" aria-label="Mutolaa">
-          <img src={logo} alt="Mutolaa" className="h-9 w-auto sm:h-10" />
+          <img src={logo} alt="Mutolaa" className="h-14 w-auto sm:h-16 lg:h-20" />
         </a>
       </div>
 
