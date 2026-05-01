@@ -24,8 +24,8 @@ export function buildHeadMeta(
     { property: "og:locale", content: localeToOg(locale) },
     { property: "og:image", content: ogImage },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: t.meta.title },
-    { name: "twitter:description", content: t.meta.description },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
     { name: "twitter:image", content: ogImage },
   ];
 
