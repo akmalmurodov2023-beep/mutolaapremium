@@ -3,16 +3,22 @@ import { LOCALE_META, type Locale } from "@/i18n/types";
 
 const SITE_URL = "https://mutolaxona.uz";
 
-export function buildHeadMeta(locale: Locale, path: string) {
+export function buildHeadMeta(
+  locale: Locale,
+  path: string,
+  override?: { title?: string; description?: string },
+) {
   const t = dictionaries[locale];
+  const title = override?.title ?? t.meta.title;
+  const description = override?.description ?? t.meta.description;
   const url = `${SITE_URL}${path}`;
   const ogImage = `${SITE_URL}/og-image.png`;
 
   const meta = [
-    { title: t.meta.title },
-    { name: "description", content: t.meta.description },
-    { property: "og:title", content: t.meta.title },
-    { property: "og:description", content: t.meta.description },
+    { title },
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
     { property: "og:type", content: "website" },
     { property: "og:url", content: url },
     { property: "og:locale", content: localeToOg(locale) },
