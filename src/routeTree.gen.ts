@@ -15,6 +15,10 @@ import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as QrRouteImport } from './routes/qr'
 import { Route as EnRouteImport } from './routes/en'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PSlugRouteImport } from './routes/p.$slug'
+import { Route as RuPSlugRouteImport } from './routes/ru.p.$slug'
+import { Route as QrPSlugRouteImport } from './routes/qr.p.$slug'
+import { Route as EnPSlugRouteImport } from './routes/en.p.$slug'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -46,47 +50,111 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PSlugRoute = PSlugRouteImport.update({
+  id: '/p/$slug',
+  path: '/p/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RuPSlugRoute = RuPSlugRouteImport.update({
+  id: '/p/$slug',
+  path: '/p/$slug',
+  getParentRoute: () => RuRoute,
+} as any)
+const QrPSlugRoute = QrPSlugRouteImport.update({
+  id: '/p/$slug',
+  path: '/p/$slug',
+  getParentRoute: () => QrRoute,
+} as any)
+const EnPSlugRoute = EnPSlugRouteImport.update({
+  id: '/p/$slug',
+  path: '/p/$slug',
+  getParentRoute: () => EnRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/en': typeof EnRoute
-  '/qr': typeof QrRoute
+  '/en': typeof EnRouteWithChildren
+  '/qr': typeof QrRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
-  '/ru': typeof RuRoute
+  '/ru': typeof RuRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/p/$slug': typeof PSlugRoute
+  '/en/p/$slug': typeof EnPSlugRoute
+  '/qr/p/$slug': typeof QrPSlugRoute
+  '/ru/p/$slug': typeof RuPSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/en': typeof EnRoute
-  '/qr': typeof QrRoute
+  '/en': typeof EnRouteWithChildren
+  '/qr': typeof QrRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
-  '/ru': typeof RuRoute
+  '/ru': typeof RuRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/p/$slug': typeof PSlugRoute
+  '/en/p/$slug': typeof EnPSlugRoute
+  '/qr/p/$slug': typeof QrPSlugRoute
+  '/ru/p/$slug': typeof RuPSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/en': typeof EnRoute
-  '/qr': typeof QrRoute
+  '/en': typeof EnRouteWithChildren
+  '/qr': typeof QrRouteWithChildren
   '/robots.txt': typeof RobotsDottxtRoute
-  '/ru': typeof RuRoute
+  '/ru': typeof RuRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/p/$slug': typeof PSlugRoute
+  '/en/p/$slug': typeof EnPSlugRoute
+  '/qr/p/$slug': typeof QrPSlugRoute
+  '/ru/p/$slug': typeof RuPSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/en' | '/qr' | '/robots.txt' | '/ru' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/en'
+    | '/qr'
+    | '/robots.txt'
+    | '/ru'
+    | '/sitemap.xml'
+    | '/p/$slug'
+    | '/en/p/$slug'
+    | '/qr/p/$slug'
+    | '/ru/p/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/en' | '/qr' | '/robots.txt' | '/ru' | '/sitemap.xml'
-  id: '__root__' | '/' | '/en' | '/qr' | '/robots.txt' | '/ru' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/en'
+    | '/qr'
+    | '/robots.txt'
+    | '/ru'
+    | '/sitemap.xml'
+    | '/p/$slug'
+    | '/en/p/$slug'
+    | '/qr/p/$slug'
+    | '/ru/p/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/en'
+    | '/qr'
+    | '/robots.txt'
+    | '/ru'
+    | '/sitemap.xml'
+    | '/p/$slug'
+    | '/en/p/$slug'
+    | '/qr/p/$slug'
+    | '/ru/p/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  EnRoute: typeof EnRoute
-  QrRoute: typeof QrRoute
+  EnRoute: typeof EnRouteWithChildren
+  QrRoute: typeof QrRouteWithChildren
   RobotsDottxtRoute: typeof RobotsDottxtRoute
-  RuRoute: typeof RuRoute
+  RuRoute: typeof RuRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  PSlugRoute: typeof PSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -133,16 +201,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/p/$slug': {
+      id: '/p/$slug'
+      path: '/p/$slug'
+      fullPath: '/p/$slug'
+      preLoaderRoute: typeof PSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ru/p/$slug': {
+      id: '/ru/p/$slug'
+      path: '/p/$slug'
+      fullPath: '/ru/p/$slug'
+      preLoaderRoute: typeof RuPSlugRouteImport
+      parentRoute: typeof RuRoute
+    }
+    '/qr/p/$slug': {
+      id: '/qr/p/$slug'
+      path: '/p/$slug'
+      fullPath: '/qr/p/$slug'
+      preLoaderRoute: typeof QrPSlugRouteImport
+      parentRoute: typeof QrRoute
+    }
+    '/en/p/$slug': {
+      id: '/en/p/$slug'
+      path: '/p/$slug'
+      fullPath: '/en/p/$slug'
+      preLoaderRoute: typeof EnPSlugRouteImport
+      parentRoute: typeof EnRoute
+    }
   }
 }
 
+interface EnRouteChildren {
+  EnPSlugRoute: typeof EnPSlugRoute
+}
+
+const EnRouteChildren: EnRouteChildren = {
+  EnPSlugRoute: EnPSlugRoute,
+}
+
+const EnRouteWithChildren = EnRoute._addFileChildren(EnRouteChildren)
+
+interface QrRouteChildren {
+  QrPSlugRoute: typeof QrPSlugRoute
+}
+
+const QrRouteChildren: QrRouteChildren = {
+  QrPSlugRoute: QrPSlugRoute,
+}
+
+const QrRouteWithChildren = QrRoute._addFileChildren(QrRouteChildren)
+
+interface RuRouteChildren {
+  RuPSlugRoute: typeof RuPSlugRoute
+}
+
+const RuRouteChildren: RuRouteChildren = {
+  RuPSlugRoute: RuPSlugRoute,
+}
+
+const RuRouteWithChildren = RuRoute._addFileChildren(RuRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  EnRoute: EnRoute,
-  QrRoute: QrRoute,
+  EnRoute: EnRouteWithChildren,
+  QrRoute: QrRouteWithChildren,
   RobotsDottxtRoute: RobotsDottxtRoute,
-  RuRoute: RuRoute,
+  RuRoute: RuRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  PSlugRoute: PSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

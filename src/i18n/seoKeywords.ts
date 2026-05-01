@@ -1,0 +1,150 @@
+import type { Locale } from "./types";
+
+// SEO landing slug'lari — har bir til uchun kalit so'zlar.
+// Har bir slug "/p/{slug}" route'ida ochiladi va sitemap'ga kiradi.
+export interface SeoKeyword {
+  slug: string;
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+}
+
+const uz: SeoKeyword[] = [
+  { slug: "mutolaa", title: "Mutolaa — premium audio va elektron kitoblar ilovasi", description: "Mutolaa ilovasi: minglab audio kitob va elektron kitobni bir joyda o'qing va tinglang. AKMAL20 promokodi bilan 20% chegirma.", h1: "Mutolaa — kitob ixlosmandlari uchun ilova", intro: "Mutolaa — O'zbekistondagi eng yirik audio va elektron kitoblar platformasi. Premium obunani AKMAL20 promokodi bilan 20% arzonroq oling." },
+  { slug: "mutolaa-premium", title: "Mutolaa Premium obuna — 20% chegirma AKMAL20", description: "Mutolaa Premium obunaga AKMAL20 promokodi orqali 20% chegirma. Minglab kitobga to'liq kirish, reklamasiz tinglash.", h1: "Mutolaa Premium obuna", intro: "Premium tarif barcha kitoblarni reklamasiz, oflayn rejimda va yuqori sifatda taqdim etadi." },
+  { slug: "mutolaa-promokod", title: "Mutolaa promokod AKMAL20 — 20% chegirma", description: "Mutolaa ilovasi uchun ishlaydigan promokod: AKMAL20. Oylik va yillik tariflarga 20% chegirma.", h1: "Mutolaa promokod — AKMAL20", intro: "AKMAL20 promokodi Mutolaa Premium obunaga 20% chegirma beradi. Yangi va eski foydalanuvchilar uchun amal qiladi." },
+  { slug: "mutolaa-promo-kod", title: "Mutolaa promo kod 2026 — AKMAL20", description: "Mutolaa promo kodi 2026: AKMAL20 — 20% chegirma. Premium obunani arzonroq xarid qiling.", h1: "Mutolaa promo kod 2026", intro: "Eng so'nggi ishlaydigan Mutolaa promo kodi — AKMAL20." },
+  { slug: "mutolaa-chegirma", title: "Mutolaa chegirma — Premium obunaga 20%", description: "Mutolaa Premium obunaga AKMAL20 promokodi orqali 20% chegirma. Cheklangan vaqt aksiyasi.", h1: "Mutolaa chegirma aksiyalari", intro: "Mutolaa ilovasida doimiy chegirma — AKMAL20 promokodi bilan." },
+  { slug: "mutolaa-aksiya", title: "Mutolaa aksiya — AKMAL20 promokodi", description: "Mutolaa ilovasidagi joriy aksiya: AKMAL20 promokodi orqali 20% chegirma.", h1: "Mutolaa aksiyalari", intro: "Mutolaa Premium obunasi uchun maxsus aksiya." },
+  { slug: "mutolaa-obuna", title: "Mutolaa obuna — oylik va yillik tariflar", description: "Mutolaa obuna tariflari: oylik va yillik. AKMAL20 promokodi bilan 20% chegirma.", h1: "Mutolaa obuna tariflari", intro: "O'zingizga mos obuna tarifini tanlang va AKMAL20 promokodi bilan tejang." },
+  { slug: "mutolaa-tariflar", title: "Mutolaa tariflar — narxlar va imkoniyatlar", description: "Mutolaa tariflari haqida to'liq ma'lumot. Premium obunaga AKMAL20 bilan 20% chegirma.", h1: "Mutolaa tariflari", intro: "Barcha Mutolaa tariflari va imkoniyatlari." },
+  { slug: "mutolaa-narxi", title: "Mutolaa narxi — Premium obuna qancha turadi", description: "Mutolaa Premium narxi va AKMAL20 promokodi bilan chegirma narxi.", h1: "Mutolaa Premium narxi", intro: "Mutolaa obuna narxlari va promokod bilan tejash imkoniyati." },
+  { slug: "mutolaa-ilovasi", title: "Mutolaa ilovasi — Android va iOS uchun", description: "Mutolaa ilovasini Android (Play Market) va iOS (App Store) dan yuklab oling.", h1: "Mutolaa ilovasini yuklab oling", intro: "Mutolaa ilovasi barcha qurilmalar uchun mavjud." },
+  { slug: "mutolaa-skachat", title: "Mutolaa skachat — ilovani yuklab olish", description: "Mutolaa ilovasini bepul yuklab oling. Android va iOS qurilmalar uchun.", h1: "Mutolaa ilovasini yuklab olish", intro: "Mutolaa'ni Play Market yoki App Store'dan o'rnating." },
+  { slug: "mutolaa-uz", title: "Mutolaa.uz — O'zbek audio va elektron kitoblar", description: "Mutolaa.uz — O'zbekistondagi eng yirik audio va elektron kitoblar platformasi.", h1: "Mutolaa.uz", intro: "O'zbek tilidagi minglab kitob va audio kitoblar." },
+  { slug: "audio-kitob", title: "Audio kitoblar — Mutolaa ilovasida tinglang", description: "Mutolaa'da minglab audio kitob. AKMAL20 promokodi bilan 20% chegirma.", h1: "Audio kitoblar Mutolaa'da", intro: "Yo'lda, sport zalida yoki uyda — istalgan vaqtda audio kitob tinglang." },
+  { slug: "elektron-kitob", title: "Elektron kitoblar — Mutolaa platformasi", description: "Minglab elektron kitobni Mutolaa'da o'qing. Premium AKMAL20 bilan arzon.", h1: "Elektron kitoblar", intro: "O'zbek va jahon adabiyotidan minglab elektron kitob." },
+  { slug: "ozbek-kitoblari", title: "O'zbek kitoblari — eng katta katalog", description: "O'zbek mualliflarining minglab kitobi Mutolaa'da. AKMAL20 — 20% chegirma.", h1: "O'zbek kitoblari katalogi", intro: "Klassik va zamonaviy o'zbek adabiyoti." },
+  { slug: "kitob-tinglash", title: "Kitob tinglash — audio kitoblar Mutolaa'da", description: "Audio kitoblarni onlayn tinglang. AKMAL20 promokodi bilan tejang.", h1: "Kitob tinglash ilovasi", intro: "Mutolaa — audio kitob tinglash uchun eng yaxshi ilova." },
+  { slug: "kitob-oqish", title: "Kitob o'qish ilovasi — Mutolaa", description: "Mutolaa ilovasi orqali istalgan kitobni o'qing.", h1: "Kitob o'qish uchun ilova", intro: "Qulay o'qish interfeysi va minglab kitob." },
+  { slug: "audiokitob-uzbek", title: "Audiokitob o'zbek tilida — Mutolaa", description: "O'zbek tilidagi audiokitoblarni Mutolaa'da tinglang.", h1: "O'zbek tilidagi audiokitoblar", intro: "Eng sara o'zbek audiokitoblar to'plami." },
+  { slug: "mutolaa-akmal20", title: "AKMAL20 — Mutolaa promokodi", description: "AKMAL20 promokodi Mutolaa Premium obunaga 20% chegirma beradi.", h1: "AKMAL20 promokodi", intro: "Eng oddiy yo'l — AKMAL20 yozib, 20% tejang." },
+  { slug: "mutolaa-bonus", title: "Mutolaa bonus — promokod orqali", description: "Mutolaa'da yangi foydalanuvchilar uchun bonus va chegirmalar.", h1: "Mutolaa bonuslari", intro: "AKMAL20 promokodi orqali bonus chegirma oling." },
+  { slug: "mutolaa-bepul", title: "Mutolaa bepul sinov — Premium ni sinab ko'ring", description: "Mutolaa Premium bepul sinov muddati va AKMAL20 chegirmasi.", h1: "Mutolaa bepul sinov", intro: "Premium imkoniyatlarni sinab ko'ring." },
+  { slug: "mutolaa-yillik", title: "Mutolaa yillik obuna — eng foydali tarif", description: "Yillik obuna eng foydali tarif. AKMAL20 bilan qo'shimcha 20% chegirma.", h1: "Mutolaa yillik obuna", intro: "Yillik tarif — eng tejamkor variant." },
+  { slug: "mutolaa-oylik", title: "Mutolaa oylik obuna — qulay narxda", description: "Oylik obuna AKMAL20 promokodi bilan 20% arzonroq.", h1: "Mutolaa oylik obuna", intro: "Oyma-oy to'lov bilan Premium imkoniyatlar." },
+  { slug: "mutolaa-android", title: "Mutolaa Android — Play Market'dan yuklang", description: "Mutolaa Android ilovasini Play Market'dan bepul yuklab oling.", h1: "Mutolaa Android uchun", intro: "Android qurilmalar uchun rasmiy ilova." },
+  { slug: "mutolaa-ios", title: "Mutolaa iOS — App Store'dan yuklang", description: "Mutolaa iOS ilovasini App Store'dan bepul yuklab oling.", h1: "Mutolaa iPhone uchun", intro: "iPhone va iPad uchun rasmiy ilova." },
+  { slug: "mutolaa-iphone", title: "Mutolaa iPhone uchun — App Store", description: "Mutolaa ilovasi iPhone uchun App Store'da mavjud.", h1: "Mutolaa iPhone'da", intro: "iPhone uchun eng zo'r kitob ilovasi." },
+  { slug: "mutolaa-kitoblar", title: "Mutolaa kitoblar katalogi", description: "Mutolaa'dagi minglab kitob — barcha janrlarda.", h1: "Mutolaa kitoblar", intro: "Janrlar bo'yicha to'liq katalog." },
+  { slug: "mutolaa-app", title: "Mutolaa App — kitob ilovasi #1", description: "Mutolaa App — O'zbekiston #1 kitob ilovasi. AKMAL20 — 20% chegirma.", h1: "Mutolaa App", intro: "Eng mashhur kitob ilovasi." },
+  { slug: "mutolaa-onlayn", title: "Mutolaa onlayn — kitob o'qish va tinglash", description: "Onlayn kitob o'qish va audio tinglash uchun Mutolaa.", h1: "Mutolaa onlayn", intro: "Internet orqali istalgan kitobga kiring." },
+  { slug: "mutolaa-kirish", title: "Mutolaa'ga kirish — login va ro'yxatdan o'tish", description: "Mutolaa hisobiga kirish va ro'yxatdan o'tish bo'yicha qo'llanma.", h1: "Mutolaa'ga kirish", intro: "Hisobingizga qanday kirishni bilib oling." },
+  { slug: "mutolaa-toplov", title: "Mutolaa to'lov — Click, Payme, Uzcard", description: "Mutolaa obunasini Click, Payme, Uzcard orqali to'lash.", h1: "Mutolaa to'lov usullari", intro: "Barcha mahalliy to'lov tizimlari qo'llab-quvvatlanadi." },
+  { slug: "promokod-mutolaa-2026", title: "Promokod Mutolaa 2026 — AKMAL20", description: "2026 yil uchun ishlaydigan Mutolaa promokodi: AKMAL20.", h1: "Promokod Mutolaa 2026", intro: "Eng so'nggi yangilangan promokod." },
+];
+
+const ru: SeoKeyword[] = [
+  { slug: "mutolaa", title: "Mutolaa — премиум аудиокниги и электронные книги", description: "Mutolaa: тысячи аудио и электронных книг в одном приложении. Промокод AKMAL20 — скидка 20%.", h1: "Mutolaa — приложение для книголюбов", intro: "Mutolaa — крупнейшая платформа аудио и электронных книг в Узбекистане." },
+  { slug: "mutolaa-premium", title: "Mutolaa Premium — скидка 20% по промокоду AKMAL20", description: "Подписка Mutolaa Premium со скидкой 20% по промокоду AKMAL20.", h1: "Подписка Mutolaa Premium", intro: "Премиум-тариф открывает доступ ко всем книгам без рекламы." },
+  { slug: "mutolaa-promokod", title: "Mutolaa промокод AKMAL20 — скидка 20%", description: "Рабочий промокод для Mutolaa: AKMAL20. Скидка 20% на месяц и год.", h1: "Промокод Mutolaa — AKMAL20", intro: "AKMAL20 даёт 20% скидку на Mutolaa Premium." },
+  { slug: "mutolaa-skidka", title: "Mutolaa скидка — 20% на Premium", description: "Скидка 20% на Mutolaa Premium по промокоду AKMAL20.", h1: "Скидки Mutolaa", intro: "Постоянная акция от Mutolaa." },
+  { slug: "mutolaa-akciya", title: "Mutolaa акция — промокод AKMAL20", description: "Действующая акция Mutolaa: 20% скидка по промокоду AKMAL20.", h1: "Акции Mutolaa", intro: "Специальное предложение для подписки." },
+  { slug: "mutolaa-podpiska", title: "Mutolaa подписка — месячная и годовая", description: "Тарифы подписки Mutolaa со скидкой 20% по AKMAL20.", h1: "Подписка Mutolaa", intro: "Выберите подходящий тариф." },
+  { slug: "mutolaa-tarify", title: "Mutolaa тарифы — цены и возможности", description: "Полная информация о тарифах Mutolaa.", h1: "Тарифы Mutolaa", intro: "Все тарифы и их преимущества." },
+  { slug: "mutolaa-cena", title: "Mutolaa цена — сколько стоит Premium", description: "Цена Mutolaa Premium и скидка по промокоду AKMAL20.", h1: "Цена Mutolaa Premium", intro: "Стоимость подписки и экономия с промокодом." },
+  { slug: "mutolaa-prilozhenie", title: "Mutolaa приложение — Android и iOS", description: "Скачайте приложение Mutolaa для Android и iOS.", h1: "Приложение Mutolaa", intro: "Доступно для всех устройств." },
+  { slug: "mutolaa-skachat", title: "Mutolaa скачать — бесплатное приложение", description: "Скачайте Mutolaa бесплатно для Android и iOS.", h1: "Скачать Mutolaa", intro: "Установите из Play Market или App Store." },
+  { slug: "audiokniga-uzbek", title: "Аудиокниги на узбекском — Mutolaa", description: "Аудиокниги на узбекском языке в приложении Mutolaa.", h1: "Аудиокниги на узбекском", intro: "Лучшая коллекция узбекских аудиокниг." },
+  { slug: "audioknigi", title: "Аудиокниги онлайн — Mutolaa", description: "Тысячи аудиокниг в Mutolaa. Промокод AKMAL20 — скидка 20%.", h1: "Аудиокниги в Mutolaa", intro: "Слушайте книги где угодно." },
+  { slug: "elektronnye-knigi", title: "Электронные книги — Mutolaa", description: "Тысячи электронных книг в Mutolaa.", h1: "Электронные книги", intro: "Читайте на телефоне и планшете." },
+  { slug: "uzbekskie-knigi", title: "Узбекские книги — каталог Mutolaa", description: "Тысячи узбекских книг в Mutolaa.", h1: "Каталог узбекских книг", intro: "Классика и современная литература." },
+  { slug: "slushat-knigi", title: "Слушать книги онлайн — Mutolaa", description: "Слушайте аудиокниги онлайн в Mutolaa.", h1: "Слушать книги онлайн", intro: "Удобное прослушивание в любом месте." },
+  { slug: "chitat-knigi", title: "Читать книги онлайн — Mutolaa", description: "Читайте электронные книги онлайн в Mutolaa.", h1: "Читать книги онлайн", intro: "Удобный интерфейс для чтения." },
+  { slug: "mutolaa-akmal20", title: "AKMAL20 — промокод Mutolaa", description: "Промокод AKMAL20 даёт скидку 20% на Mutolaa Premium.", h1: "Промокод AKMAL20", intro: "Введите AKMAL20 и сэкономьте 20%." },
+  { slug: "mutolaa-bonus", title: "Mutolaa бонус — промокод и скидки", description: "Бонусы и скидки в Mutolaa для новых пользователей.", h1: "Бонусы Mutolaa", intro: "Получите бонус по промокоду AKMAL20." },
+  { slug: "mutolaa-besplatno", title: "Mutolaa бесплатно — пробный период", description: "Пробный период Mutolaa Premium и скидка AKMAL20.", h1: "Mutolaa бесплатный пробный период", intro: "Попробуйте Premium возможности." },
+  { slug: "mutolaa-godovaya", title: "Mutolaa годовая подписка — выгодный тариф", description: "Годовая подписка — самый выгодный тариф. AKMAL20 — ещё 20% скидка.", h1: "Годовая подписка Mutolaa", intro: "Самый экономичный вариант." },
+  { slug: "mutolaa-mesyachnaya", title: "Mutolaa месячная подписка", description: "Месячная подписка Mutolaa со скидкой 20% по AKMAL20.", h1: "Месячная подписка Mutolaa", intro: "Premium на каждый месяц." },
+  { slug: "mutolaa-android", title: "Mutolaa Android — Play Market", description: "Скачайте Mutolaa для Android из Play Market.", h1: "Mutolaa для Android", intro: "Официальное приложение для Android." },
+  { slug: "mutolaa-ios", title: "Mutolaa iOS — App Store", description: "Скачайте Mutolaa для iOS из App Store.", h1: "Mutolaa для iPhone", intro: "Официальное приложение для iPhone и iPad." },
+  { slug: "mutolaa-knigi", title: "Mutolaa книги — каталог", description: "Тысячи книг в Mutolaa — все жанры.", h1: "Книги Mutolaa", intro: "Полный каталог по жанрам." },
+  { slug: "mutolaa-onlayn", title: "Mutolaa онлайн — чтение и аудио", description: "Онлайн чтение и прослушивание книг в Mutolaa.", h1: "Mutolaa онлайн", intro: "Доступ к книгам через интернет." },
+  { slug: "mutolaa-vhod", title: "Mutolaa вход — логин и регистрация", description: "Вход и регистрация в Mutolaa.", h1: "Вход в Mutolaa", intro: "Как войти в свой аккаунт." },
+  { slug: "mutolaa-oplata", title: "Mutolaa оплата — Click, Payme, Uzcard", description: "Оплата подписки Mutolaa через Click, Payme, Uzcard.", h1: "Способы оплаты Mutolaa", intro: "Все локальные платёжные системы." },
+  { slug: "promokod-mutolaa-2026", title: "Промокод Mutolaa 2026 — AKMAL20", description: "Рабочий промокод Mutolaa на 2026 год: AKMAL20.", h1: "Промокод Mutolaa 2026", intro: "Самый свежий рабочий промокод." },
+  { slug: "mutolaa-premium-skidka", title: "Mutolaa Premium скидка 20%", description: "Скидка 20% на Mutolaa Premium по AKMAL20.", h1: "Скидка на Mutolaa Premium", intro: "Активируйте промокод и сэкономьте." },
+  { slug: "luchshie-audioknigi", title: "Лучшие аудиокниги — Mutolaa", description: "Подборка лучших аудиокниг в Mutolaa.", h1: "Лучшие аудиокниги", intro: "Топ аудиокниг от редакции." },
+];
+
+const en: SeoKeyword[] = [
+  { slug: "mutolaa", title: "Mutolaa — premium audiobooks and ebooks app", description: "Mutolaa: thousands of audiobooks and ebooks in one app. Use AKMAL20 promo code for 20% off.", h1: "Mutolaa — the book lover's app", intro: "Mutolaa is the largest audiobook and ebook platform in Uzbekistan." },
+  { slug: "mutolaa-premium", title: "Mutolaa Premium — 20% off with AKMAL20", description: "Get Mutolaa Premium subscription with 20% discount using AKMAL20 promo code.", h1: "Mutolaa Premium subscription", intro: "Premium plan unlocks all books ad-free in high quality." },
+  { slug: "mutolaa-promo-code", title: "Mutolaa promo code AKMAL20 — 20% off", description: "Working promo code for Mutolaa: AKMAL20. 20% off monthly and yearly plans.", h1: "Mutolaa promo code AKMAL20", intro: "AKMAL20 gives you 20% off Mutolaa Premium." },
+  { slug: "mutolaa-discount", title: "Mutolaa discount — 20% off Premium", description: "20% discount on Mutolaa Premium with AKMAL20 promo code.", h1: "Mutolaa discounts", intro: "Ongoing promotion from Mutolaa." },
+  { slug: "mutolaa-coupon", title: "Mutolaa coupon — AKMAL20", description: "Mutolaa coupon AKMAL20 gives you 20% off Premium.", h1: "Mutolaa coupons", intro: "Save with the latest Mutolaa coupon." },
+  { slug: "mutolaa-subscription", title: "Mutolaa subscription — monthly and yearly", description: "Mutolaa subscription plans with 20% off via AKMAL20.", h1: "Mutolaa subscription", intro: "Choose the plan that fits you." },
+  { slug: "mutolaa-plans", title: "Mutolaa plans — pricing and features", description: "Full info about Mutolaa subscription plans.", h1: "Mutolaa plans", intro: "All plans and their benefits." },
+  { slug: "mutolaa-price", title: "Mutolaa price — how much is Premium", description: "Mutolaa Premium price and discount with AKMAL20 promo code.", h1: "Mutolaa Premium price", intro: "Subscription cost and savings with the promo code." },
+  { slug: "mutolaa-app", title: "Mutolaa app — Android and iOS", description: "Download the Mutolaa app for Android and iOS.", h1: "Mutolaa app", intro: "Available on all devices." },
+  { slug: "mutolaa-download", title: "Mutolaa download — free app", description: "Download Mutolaa for free on Android and iOS.", h1: "Download Mutolaa", intro: "Install from Play Store or App Store." },
+  { slug: "uzbek-audiobooks", title: "Uzbek audiobooks — Mutolaa", description: "Uzbek-language audiobooks in the Mutolaa app.", h1: "Uzbek audiobooks", intro: "Best collection of Uzbek audiobooks." },
+  { slug: "audiobooks-online", title: "Audiobooks online — Mutolaa", description: "Thousands of audiobooks in Mutolaa. AKMAL20 — 20% off.", h1: "Audiobooks in Mutolaa", intro: "Listen to books anywhere." },
+  { slug: "ebooks-online", title: "Ebooks online — Mutolaa", description: "Thousands of ebooks in Mutolaa.", h1: "Ebooks", intro: "Read on phone or tablet." },
+  { slug: "uzbek-books", title: "Uzbek books — Mutolaa catalog", description: "Thousands of Uzbek books in Mutolaa.", h1: "Uzbek books catalog", intro: "Classic and modern literature." },
+  { slug: "listen-to-books", title: "Listen to books online — Mutolaa", description: "Listen to audiobooks online in Mutolaa.", h1: "Listen to books online", intro: "Convenient listening anywhere." },
+  { slug: "read-books-online", title: "Read books online — Mutolaa", description: "Read ebooks online in Mutolaa.", h1: "Read books online", intro: "Comfortable reading interface." },
+  { slug: "mutolaa-akmal20", title: "AKMAL20 — Mutolaa promo code", description: "Promo code AKMAL20 gives you 20% off Mutolaa Premium.", h1: "AKMAL20 promo code", intro: "Enter AKMAL20 to save 20%." },
+  { slug: "mutolaa-bonus", title: "Mutolaa bonus — promo code and discounts", description: "Bonuses and discounts in Mutolaa for new users.", h1: "Mutolaa bonuses", intro: "Get bonus discount with AKMAL20." },
+  { slug: "mutolaa-free-trial", title: "Mutolaa free trial — try Premium", description: "Mutolaa Premium free trial and AKMAL20 discount.", h1: "Mutolaa free trial", intro: "Try Premium features for free." },
+  { slug: "mutolaa-yearly", title: "Mutolaa yearly subscription — best value", description: "Yearly subscription is the best value. AKMAL20 — extra 20% off.", h1: "Mutolaa yearly subscription", intro: "Most cost-effective option." },
+  { slug: "mutolaa-monthly", title: "Mutolaa monthly subscription", description: "Monthly Mutolaa subscription with 20% off via AKMAL20.", h1: "Mutolaa monthly subscription", intro: "Premium month by month." },
+  { slug: "mutolaa-android", title: "Mutolaa Android — Play Store", description: "Download Mutolaa for Android from Play Store.", h1: "Mutolaa for Android", intro: "Official Android app." },
+  { slug: "mutolaa-ios", title: "Mutolaa iOS — App Store", description: "Download Mutolaa for iOS from App Store.", h1: "Mutolaa for iPhone", intro: "Official iPhone and iPad app." },
+  { slug: "mutolaa-books", title: "Mutolaa books — catalog", description: "Thousands of books in Mutolaa — all genres.", h1: "Mutolaa books", intro: "Complete catalog by genre." },
+  { slug: "mutolaa-online", title: "Mutolaa online — read and listen", description: "Online reading and listening in Mutolaa.", h1: "Mutolaa online", intro: "Access books over the internet." },
+  { slug: "mutolaa-login", title: "Mutolaa login — sign in and sign up", description: "Sign in and register in Mutolaa.", h1: "Mutolaa login", intro: "How to access your account." },
+  { slug: "mutolaa-payment", title: "Mutolaa payment — Click, Payme, Uzcard", description: "Pay for Mutolaa subscription via Click, Payme, Uzcard.", h1: "Mutolaa payment methods", intro: "All local payment systems." },
+  { slug: "mutolaa-promo-2026", title: "Mutolaa promo code 2026 — AKMAL20", description: "Working Mutolaa promo code for 2026: AKMAL20.", h1: "Mutolaa promo 2026", intro: "Latest working promo code." },
+  { slug: "mutolaa-premium-discount", title: "Mutolaa Premium discount 20%", description: "20% discount on Mutolaa Premium via AKMAL20.", h1: "Mutolaa Premium discount", intro: "Activate the promo code and save." },
+  { slug: "best-audiobooks", title: "Best audiobooks — Mutolaa", description: "Top audiobook picks in Mutolaa.", h1: "Best audiobooks", intro: "Editor's top audiobook list." },
+];
+
+const qr: SeoKeyword[] = [
+  { slug: "mutolaa", title: "Mutolaa — premium audio hám elektron kitap qollanbası", description: "Mutolaa: mıńlaǵan audio hám elektron kitap bir jerde. AKMAL20 promokodı menen 20% jeńillik.", h1: "Mutolaa — kitap súygenler ushın qollanba", intro: "Mutolaa — Ózbekstandaǵı eń úlken audio hám elektron kitap platforması." },
+  { slug: "mutolaa-premium", title: "Mutolaa Premium — AKMAL20 menen 20% jeńillik", description: "Mutolaa Premium jazılıwına AKMAL20 promokodı menen 20% jeńillik.", h1: "Mutolaa Premium jazılıwı", intro: "Premium tarif barlıq kitaplardı reklamasız ashadı." },
+  { slug: "mutolaa-promokod", title: "Mutolaa promokod AKMAL20 — 20% jeńillik", description: "Mutolaa ushın islewshi promokod: AKMAL20.", h1: "Mutolaa promokod AKMAL20", intro: "AKMAL20 Mutolaa Premium ge 20% jeńillik beredi." },
+  { slug: "mutolaa-jeńillik", title: "Mutolaa jeńillik — Premium ge 20%", description: "Mutolaa Premium ge AKMAL20 menen 20% jeńillik.", h1: "Mutolaa jeńillikleri", intro: "Mutolaa daǵı turaqlı aktsiya." },
+  { slug: "mutolaa-aktsiya", title: "Mutolaa aktsiya — AKMAL20 promokodı", description: "Mutolaa aktsiyası: AKMAL20 promokodı menen 20% jeńillik.", h1: "Mutolaa aktsiyaları", intro: "Jazılıw ushın arnawlı usınıs." },
+  { slug: "mutolaa-jazılıw", title: "Mutolaa jazılıw — aylıq hám jıllıq", description: "Mutolaa jazılıw tarifları AKMAL20 menen 20% jeńillik.", h1: "Mutolaa jazılıwı", intro: "Ózińizge sáykes tariftı saylań." },
+  { slug: "mutolaa-tariflar", title: "Mutolaa tariflar — bahalar hám múmkinshilikler", description: "Mutolaa tarifları haqqında tolıq maǵlıwmat.", h1: "Mutolaa tarifları", intro: "Barlıq tariflar hám olardıń artıqmashılıqları." },
+  { slug: "mutolaa-bahası", title: "Mutolaa bahası — Premium qansha turadı", description: "Mutolaa Premium bahası hám AKMAL20 jeńilligi.", h1: "Mutolaa Premium bahası", intro: "Jazılıw bahası hám promokod menen únemlew." },
+  { slug: "mutolaa-qollanba", title: "Mutolaa qollanbası — Android hám iOS", description: "Mutolaa qollanbasın Android hám iOS ushın júklep alıń.", h1: "Mutolaa qollanbası", intro: "Barlıq qurılmalar ushın." },
+  { slug: "mutolaa-juklep-alıw", title: "Mutolaa júklep alıw — biypul qollanba", description: "Mutolaa nı biypul júklep alıń.", h1: "Mutolaa júklep alıw", intro: "Play Market yamasa App Store dan ornatıń." },
+  { slug: "audio-kitap", title: "Audio kitaplar — Mutolaa", description: "Mutolaa daǵı mıńlaǵan audio kitap. AKMAL20 — 20% jeńillik.", h1: "Audio kitaplar Mutolaa da", intro: "Qálegen jerde audio kitap tıńlań." },
+  { slug: "elektron-kitap", title: "Elektron kitaplar — Mutolaa", description: "Mıńlaǵan elektron kitaptı Mutolaa da oqıń.", h1: "Elektron kitaplar", intro: "Telefon hám planshette oqıń." },
+  { slug: "ozbek-kitaplari", title: "Ózbek kitapları — Mutolaa katalogı", description: "Mıńlaǵan ózbek kitabı Mutolaa da.", h1: "Ózbek kitapları katalogı", intro: "Klassik hám zamanagóy ádebiyat." },
+  { slug: "kitap-tıńlaw", title: "Kitap tıńlaw — audio kitaplar Mutolaa da", description: "Audio kitaplardı onlayn tıńlań.", h1: "Kitap tıńlaw qollanbası", intro: "Mutolaa — eń jaqsı kitap tıńlaw qollanbası." },
+  { slug: "kitap-oqıw", title: "Kitap oqıw qollanbası — Mutolaa", description: "Mutolaa qollanbası arqalı kitap oqıń.", h1: "Kitap oqıw qollanbası", intro: "Qolaylı oqıw interfeysi." },
+  { slug: "mutolaa-akmal20", title: "AKMAL20 — Mutolaa promokodı", description: "AKMAL20 promokodı Mutolaa Premium ge 20% jeńillik beredi.", h1: "AKMAL20 promokodı", intro: "AKMAL20 jazıp 20% únemleń." },
+  { slug: "mutolaa-bonus", title: "Mutolaa bonus — promokod arqalı", description: "Mutolaa daǵı jańa paydalanıwshılar ushın bonus.", h1: "Mutolaa bonusları", intro: "AKMAL20 promokodı menen bonus alıń." },
+  { slug: "mutolaa-biypul", title: "Mutolaa biypul sınaw", description: "Mutolaa Premium biypul sınaw múddeti.", h1: "Mutolaa biypul sınaw", intro: "Premium múmkinshiliklerin sınań." },
+  { slug: "mutolaa-jıllıq", title: "Mutolaa jıllıq jazılıw — eń paydalı tarif", description: "Jıllıq jazılıw eń paydalı tarif.", h1: "Mutolaa jıllıq jazılıwı", intro: "Eń úmnewli variant." },
+  { slug: "mutolaa-aylıq", title: "Mutolaa aylıq jazılıw", description: "Aylıq jazılıw AKMAL20 menen 20% arzanraq.", h1: "Mutolaa aylıq jazılıwı", intro: "Hár ay sayın Premium." },
+  { slug: "mutolaa-android", title: "Mutolaa Android — Play Market", description: "Mutolaa nı Android ushın Play Market tan júklep alıń.", h1: "Mutolaa Android ushın", intro: "Android qurılmalar ushın rásmiy qollanba." },
+  { slug: "mutolaa-ios", title: "Mutolaa iOS — App Store", description: "Mutolaa nı iOS ushın App Store dan júklep alıń.", h1: "Mutolaa iPhone ushın", intro: "iPhone hám iPad ushın rásmiy qollanba." },
+  { slug: "mutolaa-kitaplar", title: "Mutolaa kitaplar katalogı", description: "Mutolaa daǵı mıńlaǵan kitap — barlıq janrlar.", h1: "Mutolaa kitapları", intro: "Janrlar boyınsha tolıq katalog." },
+  { slug: "mutolaa-onlayn", title: "Mutolaa onlayn — kitap oqıw hám tıńlaw", description: "Onlayn kitap oqıw hám audio tıńlaw.", h1: "Mutolaa onlayn", intro: "Internet arqalı kitaplarǵa kiriw." },
+  { slug: "mutolaa-kiriw", title: "Mutolaa ǵa kiriw — login hám dizimnen ótiw", description: "Mutolaa esabına kiriw hám dizimnen ótiw.", h1: "Mutolaa ǵa kiriw", intro: "Esabıńızǵa qalay kiriwdi biliń." },
+  { slug: "mutolaa-tólew", title: "Mutolaa tólew — Click, Payme, Uzcard", description: "Mutolaa jazılıwın Click, Payme, Uzcard arqalı tólew.", h1: "Mutolaa tólew usılları", intro: "Barlıq jergilikli tólew sistemaları." },
+  { slug: "promokod-mutolaa-2026", title: "Promokod Mutolaa 2026 — AKMAL20", description: "2026 jıl ushın islewshi Mutolaa promokodı.", h1: "Promokod Mutolaa 2026", intro: "Eń jańa promokod." },
+  { slug: "mutolaa-premium-jeńillik", title: "Mutolaa Premium jeńillik 20%", description: "Mutolaa Premium ge AKMAL20 menen 20% jeńillik.", h1: "Mutolaa Premium jeńilligi", intro: "Promokodtı islestiriń hám únemleń." },
+  { slug: "eń-jaqsı-audio-kitaplar", title: "Eń jaqsı audio kitaplar — Mutolaa", description: "Mutolaa daǵı eń jaqsı audio kitaplar.", h1: "Eń jaqsı audio kitaplar", intro: "Redaktsiyanıń top audio kitapları." },
+];
+
+export const SEO_KEYWORDS: Record<Locale, SeoKeyword[]> = { uz, qr, ru, en };
+
+export function findKeyword(locale: Locale, slug: string): SeoKeyword | undefined {
+  return SEO_KEYWORDS[locale].find((k) => k.slug === slug);
+}
