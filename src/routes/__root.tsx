@@ -1,4 +1,11 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import {
+  Outlet,
+  Link,
+  createRootRoute,
+  HeadContent,
+  Scripts,
+  useRouterState,
+} from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
 
@@ -35,8 +42,8 @@ export const Route = createRootRoute({
       { name: "description", content: "Mutolaa Premium — 20% chegirma bilan AKMAL20 promokodi orqali oylik va yillik tarifga 20% chegirma oling. Minglab audio va elektron kitoblarga to'liq kirish" },
       { property: "og:description", content: "Mutolaa Premium — 20% chegirma bilan AKMAL20 promokodi orqali oylik va yillik tarifga 20% chegirma oling. Minglab audio va elektron kitoblarga to'liq kirish" },
       { name: "twitter:description", content: "Mutolaa Premium — 20% chegirma bilan AKMAL20 promokodi orqali oylik va yillik tarifga 20% chegirma oling. Minglab audio va elektron kitoblarga to'liq kirish" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/bkD3ciFDMZhQ1OajsKm6l5e6plE3/social-images/social-1777080469647-cover-min.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/bkD3ciFDMZhQ1OajsKm6l5e6plE3/social-images/social-1777080469647-cover-min.webp" },
+      { property: "og:image", content: "https://mutolaxona.uz/og-image.png" },
+      { name: "twitter:image", content: "https://mutolaxona.uz/og-image.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { property: "og:type", content: "website" },
     ],
@@ -59,9 +66,17 @@ export const Route = createRootRoute({
   notFoundComponent: NotFoundComponent,
 });
 
+function pathToLang(pathname: string): string {
+  if (pathname === "/ru" || pathname.startsWith("/ru/")) return "ru";
+  if (pathname === "/en" || pathname.startsWith("/en/")) return "en";
+  if (pathname === "/qr" || pathname.startsWith("/qr/")) return "kaa";
+  return "uz";
+}
+
 function RootShell({ children }: { children: React.ReactNode }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   return (
-    <html lang="uz">
+    <html lang={pathToLang(pathname)}>
       <head>
         <HeadContent />
       </head>
